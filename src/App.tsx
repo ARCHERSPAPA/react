@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import React from "react";
+import {
+    HashRouter as Router,
+    Switch,
+    Route,
+    Link, Redirect
+} from "react-router-dom";
+import styled from "styled-components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Nav from './component/Nav'
+const Wraper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`
+const Content = styled.div`
+  flex-grow: 1`
+export default function App() {
+    return (
+        <Router>
+            <Wraper>
+                <Content>
+                    <Switch>
+                        <Route path="/tabs">
+                            <About/>
+                        </Route>
+                        <Route path="/tongji">
+                            <Users/>
+                        </Route>
+                        <Route path="/jizhang">
+                            <Home/>
+                        </Route>
+                        <Route path="*">
+                            <NoMatch/>
+                        </Route>
+                        <Redirect from={'/'} to={'/tabs'}></Redirect>
+                    </Switch>
+                </Content>
+                <Nav/>
+
+            </Wraper>
+        </Router>
+    );
 }
 
-export default App;
+function NoMatch() {
+    return <div>baichi这都输错了</div>
+}
+
+function Home() {
+    return <h2>Home</h2>;
+}
+
+function About() {
+    return <h2>About</h2>;
+}
+
+function Users() {
+    return <h2>Users</h2>;
+}
