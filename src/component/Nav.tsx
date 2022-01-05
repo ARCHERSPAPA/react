@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import {
   Link
-} from "react-router-dom";
-import x from 'icons/tab.svg';
+}
+  from "react-router-dom";
+import {Icons} from 'component/icons';
 
-console.log(x);
+
 const MyNav = styled.div`
   width: 100%;
   > ul {
@@ -14,6 +15,13 @@ const MyNav = styled.div`
       flex-grow: 1;
       padding: 10px;
       background: aqua;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      svg{
+      height: 20px;
+      width: 20px;
+      }
     }
   }
 `;
@@ -22,17 +30,15 @@ const Nav = () => {
     <MyNav>
       <ul>
         <li>
-          <svg>
-            <svg>
-              <use xlinkHref="#tab"/>
-            </svg>
-          </svg>
+         <Icons name={'tab'}/>
           <Link to="tabs">标签</Link>
         </li>
         <li>
+          <Icons name={'my'}/>
           <Link to="/tongji">统计</Link>
         </li>
         <li>
+          <Icons name={'history'}/>
           <Link to="/jizhang">记账</Link>
         </li>
       </ul>
