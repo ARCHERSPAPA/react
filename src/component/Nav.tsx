@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import {
-    Link
+  Link
 } from "react-router-dom";
+import x from 'icons/tab.svg';
+
+console.log(x);
 const MyNav = styled.div`
   width: 100%;
   > ul {
@@ -13,22 +16,27 @@ const MyNav = styled.div`
       background: aqua;
     }
   }
-`
-const Nav =()=>{
-return(
-<MyNav>
-     <ul>
-                    <li>
-                       <Link to="tabs">标签</Link>
-                        </li>
-                        <li>
-                            <Link to="/tongji">统计</Link>
-                        </li>
-                        <li>
-                            <Link to="/jizhang">记账</Link>
-                        </li>
-                    </ul>
-                    </MyNav>
-)
-}
-export default Nav
+`;
+const Nav = () => {
+  return (
+    <MyNav>
+      <ul>
+        <li>
+          <svg>
+            <svg>
+              <use xlinkHref="#tab"/>
+            </svg>
+          </svg>
+          <Link to="tabs">标签</Link>
+        </li>
+        <li>
+          <Link to="/tongji">统计</Link>
+        </li>
+        <li>
+          <Link to="/jizhang">记账</Link>
+        </li>
+      </ul>
+    </MyNav>
+  );
+};
+export default Nav;

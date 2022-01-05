@@ -37,7 +37,6 @@ export default function App() {
                     </Switch>
                 </Content>
                 <Nav/>
-
             </Wraper>
         </Router>
     );
